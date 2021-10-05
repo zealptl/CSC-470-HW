@@ -29,11 +29,6 @@ HW_contrast(ImagePtr I1, double brightness, double contrast, ImagePtr I2)
     ChannelPtr<uchar> p1, p2;
     int type;
 
-    // Note: IP_getChannel(I, ch, p1, type) gets pointer p1 of channel ch in image I.
-    // The pixel datatype (e.g., uchar, short, ...) of that channel is returned in type.
-    // It is ignored here since we assume that our input images consist exclusively of uchars.
-    // IP_getChannel() returns 1 when channel ch exists, 0 otherwise.
-
     // visit all image channels and evaluate output image
     for(int ch=0; IP_getChannel(I1, ch, p1, type); ch++) {    // get input  pointer for channel ch
         IP_getChannel(I2, ch, p2, type);        // get output pointer for channel ch

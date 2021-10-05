@@ -46,7 +46,7 @@ HW_quantize(ImagePtr I1, int levels, bool dither, ImagePtr I2)
                 for (int x = 0; x < width; x++) {
                     int jitter = ((double) rand() / RAND_MAX) * bias;
                     int modified = *p1++ + (sign * jitter);
-                    *p2++ = LUT[CLIP(modified, 0, MaxGray)];
+                    *p2++ = LUT[CLIP(modified, 0, MaxGray)]; // clip values outside of [0, 255] before checking in LUT
                     
                     sign *= -1;
                 }

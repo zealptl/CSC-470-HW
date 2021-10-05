@@ -30,6 +30,7 @@ HW_clip(ImagePtr I1, int t1, int t2, ImagePtr I2)
     ChannelPtr<uchar> p1, p2;
     int type;
     
+    // visit all image channels and evaluate output image
     for (int ch=0; IP_getChannel(I1, ch, p1, type); ch++) {
         IP_getChannel(I2, ch, p2, type);
         for(i = 0; i < total; i++) *p2++ = LUT[*p1++];
